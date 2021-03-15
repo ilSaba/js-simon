@@ -14,18 +14,33 @@
 
 
 $(document).ready(function () {
-
+    // Genero 5 numeri random da 0 a 100;
     var arr = [];
     while(arr.length < 5){
         var i = Math.floor(Math.random() * 10) + 1;
         if(arr.indexOf(i) === -1) arr.push(i);
     }
+
+    // Console log dei miei numeri random;
     console.log(arr);
 
-    $("#numeri").text(arr);
+    // Stampo numeri sull'html;
+    $(".numeri").text(arr);
 
+    // Creo funzione da inserire all'interno del mio comando "setTimeout";
+    // Faccio diventare i miei numeri invisibili allo scadere del timeout;
+    function endShow(){
+        $('.numeri').css('display', 'none');
+    }
 
-    setTimeout(arr, 3000);
-});      
+    // Creo variabile e setto il timer di timeOut;
+    var timerShow = setTimeout(endShow, 2000);
+
+    var timerHide = setTimeout(promptShow, 3000);
+
+    function promptShow(){
+        var numeriGiocatore = prompt("Dimmi i numeri che ti ricordi, uno per volta.");
+    }
+});        
 
 
