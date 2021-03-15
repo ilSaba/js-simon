@@ -34,13 +34,22 @@ $(document).ready(function () {
     }
 
     // Creo variabile e setto il timer di timeOut;
-    var timerShow = setTimeout(endShow, 2000);
+    var timerShow = setTimeout(endShow, 30000);
 
-    var timerHide = setTimeout(promptShow, 3000);
+    var timerHide = setTimeout(promptShow, 30000);
 
     function promptShow(){
-        var numeriGiocatore = prompt("Dimmi i numeri che ti ricordi, uno per volta.");
+
+    var i = 1;
+    var j = 0;
+    while (i >= 1 && i <= 5) {
+        var pippo = (parseInt(prompt("Dimmi i numeri che ti ricordi, uno per volta")));
+        if (arr.includes(pippo)) {
+            console.log(pippo);
+            $(".risultato").append(pippo + " ");
+            j++;
+        } i++;
     }
-});        
-
-
+    $(".risultato").append("<br> Hai indovinato " + j + " numeri");
+}
+});
